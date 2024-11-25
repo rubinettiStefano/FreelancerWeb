@@ -21,38 +21,18 @@ public class ControllerHelper
 	private ControllerHelper(){}
 
 	FreelancerRepository fRepo 	= FreelancerRepository.getInstance();
-	EmployerRepository eRepo 	= EmployerRepository.getInstance();
 
-	public String nomiTuttiFreelancer()
+	public List<Freelancer> allFreelancer()
 	{
-		List<Freelancer> freelancers = fRepo.findAll();
-		String nomi = "";
-
-		for(Freelancer freelancer : freelancers)
-			nomi+=freelancer.getName()+"\n";
-
-		return nomi;
+		return fRepo.findAll();
 	}
-
-	public String nomiTutteAziende()
+	public void inserisciFreelancer(String name,String surname,int age,String p_iva)
 	{
-		List<Employer> aziende = eRepo.findAll();
-		String nomi = "";
-
-		for(Employer e : aziende)
-			nomi+=e.getName()+"\n";
-
-		return nomi;
-	}
-
-	public String nomiTuttiFreelanceEta(int ageMin, int ageMax)
-	{
-		List<Freelancer> freelancers = fRepo.findAllFreelancerByAgeRange(ageMin, ageMax);
-		String nomi = "";
-
-		for(Freelancer freelancer : freelancers)
-			nomi+=freelancer.getName()+"\n";
-
-		return nomi;
+		Freelancer f = new Freelancer();
+		f.setName(name);
+		f.setSurname(surname);
+		f.setAge(age);
+		f.setP_iva(p_iva);
+		fRepo.insert(f);
 	}
 }

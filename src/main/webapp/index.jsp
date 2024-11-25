@@ -7,5 +7,7 @@
 <body>
 <br/>
 <a href="mostraTuttiFreelancer">Mostra freelancer</a>
+
+<a href="formInsFree">Inserisci freelancer</a>
 </body>
 </html>
