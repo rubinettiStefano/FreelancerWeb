@@ -22,6 +22,11 @@ public class ControllerHelper
 
 	FreelancerRepository fRepo 	= FreelancerRepository.getInstance();
 
+	public Freelancer findOne(int id)
+	{
+		return fRepo.find(id);
+	}
+
 	public List<Freelancer> allFreelancer()
 	{
 		return fRepo.findAll();
@@ -34,5 +39,20 @@ public class ControllerHelper
 		f.setAge(age);
 		f.setP_iva(p_iva);
 		fRepo.insert(f);
+	}
+
+	public void deleteOneFreelancer(int id)
+	{
+		fRepo.delete(id);
+	}
+
+	public void modificaFreelancer(int id, String name, String surname, String pIva, int age)
+	{
+		Freelancer f = findOne(id);
+		f.setName(name);
+		f.setSurname(surname);
+		f.setAge(age);
+		f.setP_iva(pIva);
+		fRepo.modify(f);
 	}
 }

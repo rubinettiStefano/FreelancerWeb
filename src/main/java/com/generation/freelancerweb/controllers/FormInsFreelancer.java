@@ -42,7 +42,7 @@ public class FormInsFreelancer extends HttpServlet
 		//mi mostrerà la form
 		//tutte le request che mandate tramite barra del browser
 		//o tramite LINK sono SEMPRE GET
-		req.getRequestDispatcher("formInsFree.jsp").forward(req, resp);
+		req.getRequestDispatcher("jsp/formInsFree.jsp").forward(req, resp);
 	}
 
 	@Override

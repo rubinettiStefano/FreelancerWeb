@@ -16,8 +16,10 @@
         {
     %>
         <h2>
-            <img src="https://picsum.photos/35" />
-            <%=f.getName()%> <%=f.getSurname()%> <%=f.getAge()%> anni
+            <a href="dettaglioFreelancer?id=<%=f.getId()%>">
+                <img src="https://picsum.photos/35" />
+            </a>
+            <%=f.getName()%> <%=f.getSurname()%> <%=f.getAge()%> anni <a href="dettaglioFreelancer?id=<%=f.getId()%>">vai dettaglio</a>
         </h2>
 
     <%  } %>

@@ -11,20 +11,24 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "mostraTuttiFreelancer",value = "/mostraTuttiFreelancer")
-public class MostraTuttiFreelancer extends HttpServlet
+@WebServlet(name = "dettaglioFreelancer",value = "/dettaglioFreelancer")
+public class DettaglioFreelancer extends HttpServlet
 {
 	private ControllerHelper helper = ControllerHelper.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		List<Freelancer> freelancers = helper.allFreelancer();
-		//i dati che una Servlet passa ad una JSP vengono detti ATTRIBUTI
-		//li allega all'oggetto req
-		req.setAttribute("freelancersAttr", freelancers);
-		//possiamo DROGARE (arricchire) la request con degli ATTRIBUTI
+		int id = Integer.parseInt(req.getParameter("id"));
+		Freelancer f = helper.findOne(id);
+		req.setAttribute("freelancer", f);
 
-		req.getRequestDispatcher("jsp/mostraTuttiFreelancer.jsp").forward(req, resp);
+		if(req.getParameter("modifica")!=null && req.getParameter("modifica").equals("true"))
+			req.setAttribute("modifica",true);
+		else
+			req.setAttribute("modifica",false);
+
+		req.getRequestDispatcher("jsp/dettaglioFreelancer.jsp").forward(req, resp);
+
 	}
 }

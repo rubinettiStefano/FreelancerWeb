@@ -1,0 +1,61 @@
+
+/*
+SOVRASCRIVERE le caratteristiche INNATE di una
+TIPOLOGIA di elemento
+ */
+div
+{
+    color:white;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-style: dotted;
+    border-width: 3px;
+    border-color: fuchsia;
+}
+
+p
+{
+    margin-left: 10px;
+}
+
+/*
+    TARGET PER ATTRIBUTO CLASS HTML
+ */
+.grassettamelo
+{
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.paddamelo
+{
+    padding: 10px;
+}
+
+.marginamelo
+{
+    margin: 10px;
+}
+
+/*
+    Targetizzazione per id
+ */
+#paragrafo1
+{
+    font-family: Carlito,serif;
+}
+
+button
+{
+    color: deeppink !important;
+}
+
+.colbott
+{
+    color: midnightblue;
+}
+
+#bottone
+{
+    color: red;
+}
